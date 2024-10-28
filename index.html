@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelime Bulmaca Oyunu</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+    }
+
+    #mode-selection {
+      margin-top: 15px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    #board-container {
+      margin-top: 20px;
+    }
+
+    #board {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr); /* 6 satır */
+      grid-template-columns: repeat(5, 1fr); /* Her satırda 5 hücre */
+      gap: 5px;
+      justify-content: center;
+      max-width: 300px;
+      margin: 10px auto;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+      border: 2px solid white;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .correct {
+      background-color: green;
+    }
+
+    .partial {
+      background-color: yellow;
+    }
+
+    .wrong {
+      background-color: gray;
+    }
+
+    #guessInput {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    #profile-container {
+      margin-top: 30px;
+      border-top: 1px solid white;
+      padding-top: 20px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kelime Bulmaca Oyunu</h1>
+
+  <div id="mode-selection">
+    <button onclick="startDailyGame()">Günlük Soru</button>
+    <button onclick="startNormalGame()">Serbest Oyun</button>
+  </div>
+
+  <div id="board-container" style="display: none;">
+    <div id="board"></div>
+    <input type="text" id="guessInput" maxlength="5" placeholder="Kelimeyi girin...">
+    <button onclick="checkGuess()">Tahmin Et</button>
+    <p id="message"></p>
+  </div>
+
+  <div id="profile-container">
+    <h2>Profil ve İstatistikler</h2>
+    <p>Toplam Oyun: <span id="totalGames">0</span></p>
+    <p>Kazanç: <span id="wins">0</span></p>
+    <p>Kazanma Yüzdesi: <span id="winPercentage">0%</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
